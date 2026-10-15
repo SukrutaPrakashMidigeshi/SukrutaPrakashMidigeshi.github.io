@@ -4,14 +4,14 @@
 # =========================================================
 
 # ------------ Basic Site Settings ------------
-locale: "IND"
+locale: "en-US"
 site_theme: "default"
 title: "Sukruta Prakash Midigeshi"
 title_separator: "-"
 name: "Sukruta Prakash Midigeshi"
 
-description: "Research Fellow at Microsoft Research | Machine Learning, RAG, Bandits, Algorithms"
-url: "https://SukrutaPrakashMidigeshi.github.io"
+description: "Sukruta Prakash Midigeshi is an Applied Scientist at Amazon and former Research Fellow at Microsoft Research, working on bandit algorithms, online learning, algorithmic game theory and LLM reasoning."
+url: "https://sukrutaprakashmidigeshi.github.io"
 baseurl: ""
 repository: "SukrutaPrakashMidigeshi/SukrutaPrakashMidigeshi.github.io"
 
@@ -20,16 +20,17 @@ repository: "SukrutaPrakashMidigeshi/SukrutaPrakashMidigeshi.github.io"
 author:
   avatar: "Image_profile.jpg"
   name: "Sukruta Prakash Midigeshi"
-  bio: "Research Fellow, Microsoft Research"
+  bio: "Applied Scientist, Amazon. Previously Research Fellow, Microsoft Research India."
   location: "India"
-  employer: "Microsoft Research"
+  employer: "Amazon"
   email: "sukruta.midigeshi@gmail.com"
 
   # Academic profiles
   googlescholar: "https://scholar.google.com/citations?user=oAIcmQUAAAAJ"
-  arxiv: #
-  researchgate: #
+  arxiv:
+  researchgate:
   orcid:
+  openreview: "https://openreview.net/profile?id=~Sukruta_Prakash_Midigeshi1"
   semantic:
   scopus:
 
@@ -38,7 +39,7 @@ author:
   kaggle:
 
   # Social media
-  linkedin: "https://www.linkedin.com/in/sukruta-midigeshi"
+  linkedin: "sukruta-midigeshi"
   twitter:
   instagram:
   facebook:
@@ -58,6 +59,8 @@ publication_category:
     title: "Journal Articles"
   conferences:
     title: "Conference Papers"
+  workshops:
+    title: "Workshop Papers"
 
 
 # ------------ Site Settings ------------
@@ -76,13 +79,13 @@ atom_feed:
   path:
 
 # ------------ SEO ------------
-google_site_verification:
+google_site_verification:   # paste the code from Google Search Console here
 bing_site_verification:
 alexa_site_verification:
 yandex_site_verification:
 
-og_image:
-og_description:
+og_image: "Image_profile.jpg"
+og_description: "Personal website of Sukruta Prakash Midigeshi: bandits, online learning, algorithmic game theory and LLM reasoning."
 
 social:
   type: Person
@@ -91,6 +94,7 @@ social:
     - "https://scholar.google.com/citations?user=oAIcmQUAAAAJ"
     - "https://www.linkedin.com/in/sukruta-midigeshi"
     - "https://github.com/Sukruta02"
+    - "https://openreview.net/profile?id=~Sukruta_Prakash_Midigeshi1"
 
 
 # ------------ Analytics ------------
@@ -121,6 +125,16 @@ exclude:
   - package.json*
   - README
   - vendor
+  - CONTRIBUTING.md
+  - Dockerfile
+  - docker-compose.yaml
+  - markdown_generator
+  - scripts
+  - talkmap
+  - talkmap.ipynb
+  - talkmap_out.ipynb
+  - talkmap.py
+  - README.md
 
 keep_files:
   - .git
