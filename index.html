@@ -21,7 +21,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
   <!-- Apply a saved light/dark choice before the page draws, to avoid a flash -->
   <script>
     try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
@@ -68,56 +68,32 @@
         <a href="https://www.linkedin.com/in/sukruta-midigeshi" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
         <a href="mailto:sukruta.midigeshi@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
       </nav>
-
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark mode">
-        <i class="fas fa-moon" aria-hidden="true"></i> <span>Dark mode</span>
-      </button>
-      <script>
-        (function () {
-          var root = document.documentElement, btn = document.getElementById("theme-toggle");
-          function isDark() {
-            var t = root.getAttribute("data-theme");
-            return t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
-          }
-          function render() {
-            var dark = isDark();
-            btn.querySelector("i").className = dark ? "fas fa-sun" : "fas fa-moon";
-            btn.querySelector("span").textContent = dark ? "Light mode" : "Dark mode";
-          }
-          btn.addEventListener("click", function () {
-            var next = isDark() ? "light" : "dark";
-            root.setAttribute("data-theme", next);
-            try { localStorage.setItem("theme", next); } catch (e) {}
-            render();
-          });
-          render();
-        })();
-      </script>
     </header>
 
     <main>
       <h2 id="about-me">About Me</h2>
-      <p>I am an Applied Scientist in the Selection Monitoring team at Amazon. My main interests lie in
-        online learning, game theory and large language models (LLMs).</p>
+      <p>I am an Applied Scientist in the Selection Monitoring team at Amazon. My research interests lie at the
+        intersection of <strong>online learning, game theory, and large language models (LLMs)</strong>, with a
+        particular focus on the algorithmic foundations of learning and reasoning.</p>
 
-      <p>Before this, I was a Research Fellow at
+      <p>Prior to joining Amazon, I was a Research Fellow at
         <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/">Microsoft Research India</a>
         (2024&ndash;2026), where I worked with
         <a href="https://www.microsoft.com/en-us/research/people/gauravsinha/">Gaurav Sinha</a>
-        on bandit algorithms, especially in limited-adaptivity settings. I also worked on reasoning and
-        retrieval in LLMs, as well as on computational social choice.</p>
+        on bandit algorithms, particularly in settings with limited adaptivity and feedback. My work also explored
+        reasoning and retrieval in LLMs, as well as problems in computational social choice.</p>
 
       <p>I received my B.Tech. in Computer Science and Engineering from the
-        <a href="https://iitgn.ac.in">Indian Institute of Technology Gandhinagar</a> in 2024,
-        where I worked on fair division and machine learning theory.
+        <a href="https://iitgn.ac.in/">Indian Institute of Technology Gandhinagar</a> in 2024,
+        where I worked on problems in fair division and machine learning theory.
         During my undergraduate studies, I also interned at
-        <a href="https://www.deshawindia.com/">D.&nbsp;E.&nbsp;Shaw</a>, eLitmus and goGlocal.</p>
+        <a href="https://www.deshawindia.com/">D.&nbsp;E.&nbsp;Shaw</a>, eLitmus, and goGlocal.</p>
 
       <h2 id="research-interests">Research Interests</h2>
       <ul>
-        <li><strong>Bandits &amp; Online Learning:</strong> algorithms with provable regret guarantees</li>
-        <li><strong>Algorithms &amp; Algorithmic Game Theory:</strong> optimization and learning from weak feedback</li>
-        <li><strong>Reasoning in LLMs:</strong> understanding the algorithmic reasoning capabilities of LLMs</li>
+        <li><strong>Bandits and Online Learning:</strong> Designing algorithms with provable regret guarantees, particularly under limited feedback and adaptivity.</li>
+        <li><strong>Algorithms and Algorithmic Game Theory:</strong> Optimization, strategic interactions, and learning in settings with limited or imperfect information.</li>
+        <li><strong>Reasoning in LLMs:</strong> Understanding the algorithmic foundations, capabilities, and limitations of reasoning in large language models.</li>
       </ul>
 
       <h2 id="publications">Publications</h2>
@@ -170,5 +146,32 @@
     </main>
 
   </div>
+  <!-- Light/dark toggle: small paw in the top-right corner -->
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <i class="fas fa-paw" aria-hidden="true"></i>
+  </button>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("theme-toggle");
+      var media = window.matchMedia("(prefers-color-scheme: dark)");
+      function isDark() {
+        var t = root.getAttribute("data-theme");
+        return t === "dark" || (t !== "light" && media.matches);
+      }
+      function label() {
+        var text = isDark() ? "Switch to light mode" : "Switch to dark mode";
+        btn.setAttribute("aria-label", text);
+        btn.setAttribute("title", text);
+      }
+      btn.addEventListener("click", function () {
+        var next = isDark() ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        label();
+      });
+      label();
+    })();
+  </script>
 </body>
 </html>
